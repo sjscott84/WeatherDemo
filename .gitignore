@@ -1,6 +1,12 @@
 # OSX
 #
 .DS_Store
+.watchmanconfig
+.buckconfig
+.flowconfig
+.gitattributes
+.babelrc
+.git
 
 # Xcode
 #
