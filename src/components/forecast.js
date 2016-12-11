@@ -7,7 +7,8 @@ import {
   Text,
   View,
   ScrollView,
-  Image
+  Image,
+  TouchableHighlight
 } from 'react-native';
 
 class Forecast extends Component{
@@ -25,7 +26,7 @@ class Forecast extends Component{
       .then((responseJson) => {
         //console.log(responseJson['forecast']['simpleforecast']);
       let data = responseJson['forecast']['simpleforecast']['forecastday'];
-      console.log(data);
+      //console.log(data);
       for(var i = 0; i<data.length; i++){
         forecasts.push(<Day key={i} day={data[i]['date']['weekday']} image={data[i]['icon_url']} weather={data[i]['conditions']} low={data[i]['low']['fahrenheit']} high={data[i]['high']['fahrenheit']} />);
       }
@@ -41,7 +42,9 @@ class Forecast extends Component{
     return (
       <ScrollView style={styles.container}>
         <View style={[styles.weather, {flexDirection: 'row'}, {justifyContent: 'space-between'}]}>
-          <Text onPress={this._onPressBack.bind(this)}>Back</Text>
+          <TouchableHighlight onPress={this._onPressBack.bind(this)} underlayColor={'gray'}>
+            <Text>Back</Text>
+          </TouchableHighlight>
           <Text>{this.props.displayName}, {this.props.state}</Text>
         </View>
         {this.state.data}

@@ -7,14 +7,15 @@ import {
   Text,
   View,
   ScrollView,
-  Image
+  Image,
+  TouchableHighlight
 } from 'react-native';
 
 class Home extends Component{
   constructor(){
     super();
     this.state = {
-      cities: [{city: 'San_Francisco', state: 'CA'}, {city: 'Seattle', state: 'WA'}, {city: 'Atlanta', state:'GA'}, {city: 'Sacramento', state: 'CA'}, {city: 'Austin', state: 'TX'}]
+      cities: [{city: 'San_Francisco', state: 'CA'}, {city: 'Seattle', state: 'WA'}, {city: 'Atlanta', state:'GA'}, {city: 'Sacramento', state: 'CA'}, {city: 'Austin', state: 'TX'}, {city: 'Chicago', state: 'IL'}]
     }
   } 
 
@@ -54,7 +55,7 @@ class City extends Component{
     return fetch('https://api.wunderground.com/api/42a7c3fafb4ed6ff/conditions/q/'+this.props.state+'/'+this.props.city+'.json')
       .then((response) => response.json())
       .then((responseJson) => {
-        console.log(responseJson);
+        //console.log(responseJson);
         this.setState({
           displayName: responseJson['current_observation']['display_location']['city'],
           image: responseJson['current_observation']['icon_url'],
@@ -83,7 +84,9 @@ class City extends Component{
           <Text>{this.state.weather}</Text>
           <Text>{this.state.temp}</Text>
         </View>
-        <Text onPress={this._onPress.bind(this)}>Get 10 Day Forecast</Text>
+        <TouchableHighlight onPress={this._onPress.bind(this)} underlayColor={'gray'}>
+          <Text>Get 10 Day Forecast</Text>
+        </TouchableHighlight>
       </View>
     )
   }
