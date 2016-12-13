@@ -18,7 +18,7 @@ const ROUTES = {
   forecast: Forecast
 }
 
-export default class ApteligentMobileApp extends Component {
+export default class WeatherDemo extends Component {
   render() {
     return (
       <Navigator style={styles.container} initialRoute={{name:'home'}} renderScene={this._renderScene} configureScene={() => {return Navigator.SceneConfigs.FloatFromRight}}/>

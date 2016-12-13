@@ -15,13 +15,14 @@ class Forecast extends Component{
   constructor(){
     super();
     this.state = {
-      data: []
+      data: [],
+      key: ''
     }
   }
 
   componentWillMount(){
     let forecasts = [];
-    return fetch('https://api.wunderground.com/api/42a7c3fafb4ed6ff/forecast10day/q/'+this.props.state+'/'+this.props.city+'.json')
+    return fetch('https://api.wunderground.com/api/'+this.state.key+'/forecast10day/q/'+this.props.state+'/'+this.props.city+'.json')
       .then((response) => response.json())
       .then((responseJson) => {
         //console.log(responseJson['forecast']['simpleforecast']);

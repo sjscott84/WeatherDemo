@@ -15,7 +15,7 @@ class Home extends Component{
   constructor(){
     super();
     this.state = {
-      cities: [{city: 'San_Francisco', state: 'CA'}, {city: 'Seattle', state: 'WA'}, {city: 'Atlanta', state:'GA'}, {city: 'Sacramento', state: 'CA'}, {city: 'Austin', state: 'TX'}, {city: 'Chicago', state: 'IL'}]
+      cities: [{city: 'San_Francisco', state: 'CA'}, {city: 'Seattle', state: 'WA'}, {city: 'Atlanta', state:'GA'}, {city: 'Sacramento', state: 'CA'}, {city: 'Austin', state: 'TX'}, {city: 'Chicago', state: 'IL'}, {city: 'New York', state: 'NY'}]
     }
   } 
 
@@ -42,6 +42,7 @@ class City extends Component{
   constructor(){
     super();
     this.state = {
+      key: '',
       displayName: '',
       image: '',
       temp: '',
@@ -52,7 +53,7 @@ class City extends Component{
   //Components
   componentWillMount(){
     console.log(this.props.city);
-    return fetch('https://api.wunderground.com/api/42a7c3fafb4ed6ff/conditions/q/'+this.props.state+'/'+this.props.city+'.json')
+    return fetch('https://api.wunderground.com/api/'+this.state.key+'/conditions/q/'+this.props.state+'/'+this.props.city+'.json')
       .then((response) => response.json())
       .then((responseJson) => {
         //console.log(responseJson);
