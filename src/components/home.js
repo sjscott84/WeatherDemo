@@ -99,7 +99,8 @@ class City extends Component{
       passProps: {
         city: this.props.city,
         state: this.props.state,
-        displayName: this.state.displayName
+        displayName: this.state.displayName,
+        key: this.state.key
       }
     })
   }

@@ -12,11 +12,11 @@ import {
 } from 'react-native';
 
 class Forecast extends Component{
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
       data: [],
-      key: ''
+      key: this.props.key
     }
   }
 
