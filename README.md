@@ -9,7 +9,7 @@ https://facebook.github.io/react-native/docs/getting-started.html#content
 You will need to get a free developer key from Weather Underground. Below is the link:
 https://www.wunderground.com/weather/api/
 
-Save this key as a string to state.key in both src/components/home.js and src/components/forecast.js.    
+Save this key as a string to state.key in src/components/home.js.    
 `constructor(){  
       super();  
       this.state = {  
